@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, jsonify
 from music21 import converter, musicxml
 from music21.braille import translate
@@ -46,9 +47,8 @@ def convert_to_braille(userinput):
         braille = ""
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 5000))
     app.debug = True
-    # app.run()
+    app.run()
 
 @app.errorhandler(404)
 def not_found(e):
